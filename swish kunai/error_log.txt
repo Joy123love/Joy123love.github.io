@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\1_NewLecture01\Desktop\Coding portfolio 1\swish kunai\main.py", line 17, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\1_NewLecture01\Desktop\Coding portfolio 1\swish kunai\main.py", line 12, in main
+    window = MusicPlayerWindow()
+  File "C:\Users\1_NewLecture01\Desktop\Coding portfolio 1\swish kunai\music_player_window.py", line 202, in __init__
+pygame-ce 2.5.6 (SDL 2.32.10, Python 3.14.1)
+    self.game_timer.timeout.connect(self.update_game)
+                                    ^^^^^^^^^^^^^^^^
+AttributeError: 'MusicPlayerWindow' object has no attribute 'update_game'. Did you mean: 'update_stars'?

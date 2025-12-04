@@ -1,0 +1,28 @@
+    def start_rest_period(self):
+        """Start the 1-minute rest period"""
+        self.is_resting = True
+        self.rest_time_remaining = 60  # 60 seconds
+        print("Rest period started! Take a 1-minute break...")
+        
+        # Create timer for rest countdown
+        from PyQt6.QtCore import QTimer
+        self.rest_timer = QTimer(self)
+        self.rest_timer.timeout.connect(self.update_rest_countdown)
+        self.rest_timer.start(1000)  # Update every second
+        
+        self.update()
+    
+    def update_rest_countdown(self):
+        """Update the rest period countdown"""
+        self.rest_time_remaining -= 1
+        
+        if self.rest_time_remaining <= 0:
+            # Rest period over, resume game
+            self.rest_timer.stop()
+            self.is_resting = False
+            self.last_speed_increase = 60  # Mark that we've done the rest
+            print("Rest period over! Game resuming...")
+            self.update()
+        else:
+            # Update display
+            self.update()

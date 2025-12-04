@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Anime.js Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+</head>
+
+<body class="loading">
+    <!-- Black & white loading screen -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <div class="loader-ring loader-ring-inner"></div>
+            <div class="loader-title">Truejoy Portfolio</div>
+            <div class="loader-subtitle">Loading projects</div>
+        </div>
+    </div>
+
+    <!-- Background Butterflies -->
+    <div class="butterfly butterfly-1">🦋</div>
+    <div class="butterfly butterfly-2">🦋</div>
+
+    <!-- Settings Gear Button -->
+    <button class="settings-btn" id="settingsBtn" title="Settings">⚙️</button>
+
+    <!-- Menu Overlay -->
+    <div id="menuOverlay" class="menu-overlay">
+        <div class="menu-content">
+            <div class="menu-item">
+                <input type="checkbox" id="check-achievement" class="menu-checkbox">
+                <label for="check-achievement" class="menu-label">Project 1</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" id="check-swish-kunai" class="menu-checkbox">
+                <label for="check-swish-kunai" class="menu-label">Project 2</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" id="check-music-player" class="menu-checkbox">
+                <label for="check-music-player" class="menu-label">Project 3</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" id="check-bonus" class="menu-checkbox">
+                <label for="check-bonus" class="menu-label">Project 4</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" id="check-30-seconds" class="menu-checkbox">
+                <label for="check-30-seconds" class="menu-label">Project 5</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" id="check-extras" class="menu-checkbox">
+                <label for="check-extras" class="menu-label">Project 6</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Overlay -->
+    <div id="settingsOverlay" class="settings-overlay">
+        <div class="settings-content">
+            <!-- Theme Toggle -->
+            <button class="settings-theme-btn" id="settingsThemeToggle" title="Toggle theme">🌙</button>
+
+            <!-- Play/Pause Button -->
+            <button class="settings-play-pause" id="playPauseBtn" title="Play/Pause">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z" />
+                </svg>
+                <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                </svg>
+            </button>
+
+            <!-- Volume Slider -->
+            <div class="volume-control">
+                <label for="volumeSlider" class="volume-label">🔊</label>
+                <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="50">
+                <span class="volume-value" id="volumeValue">50%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="section-label">PORTFOLIO</div>
+            <div class="title-section">
+                <h1 class="main-title"><span id="typingText"></span><span class="typing-cursor">|</span></h1>
+                <p class="author-name">Truejoy Magaya</p>
+            </div>
+            <div class="header-buttons">
+                <button class="menu-btn" id="menuBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Path Container -->
+        <div class="path-container">
+            <!-- Character -->
+            <div class="character" id="character">
+                <div class="avatar">
+                    <div class="avatar-head">
+                        <div class="avatar-hair"></div>
+                        <div class="avatar-face">
+                            <div class="avatar-eyes">
+                                <div class="avatar-eye avatar-eye-left"></div>
+                                <div class="avatar-eye avatar-eye-right"></div>
+                            </div>
+                            <div class="avatar-mouth"></div>
+                        </div>
+                    </div>
+                    <div class="avatar-upper">
+                        <div class="avatar-arm avatar-arm-left"></div>
+                        <div class="avatar-body"></div>
+                        <div class="avatar-arm avatar-arm-right"></div>
+                    </div>
+                    <div class="avatar-legs">
+                        <div class="avatar-leg avatar-leg-left"></div>
+                        <div class="avatar-leg avatar-leg-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Tiles -->
+            <div class="tiles-row">
+                <!-- 1. Simple HTML Basics -->
+                <div class="tile" data-project="simple-html">
+                    <img src="tiles.png" alt="Simple HTML Basics" class="tile-img">
+                </div>
+
+                <!-- 2. To-Do App -->
+                <div class="tile" data-project="todo-app">
+                    <img src="tiles.png" alt="To-Do App" class="tile-img">
+                </div>
+
+                <!-- 3. Password Generator -->
+                <div class="tile" data-project="password-generator">
+                    <img src="tiles.png" alt="Password Generator" class="tile-img">
+                </div>
+
+                <!-- 4. 30 Seconds Game -->
+                <div class="tile" data-project="30-seconds">
+                    <img src="tiles.png" alt="30 Seconds Game" class="tile-img">
+                </div>
+
+                <!-- 5. Swish Kunai -->
+                <div class="tile" data-project="swish-kunai">
+                    <img src="tiles.png" alt="Swish Kunai" class="tile-img">
+                </div>
+
+                <!-- 6. Aves Derivative -->
+                <div class="tile" data-project="aves-derivative">
+                    <img src="tiles.png" alt="Aves Derivative" class="tile-img">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Black Overlay from Bottom -->
+    <div id="bottomOverlay" class="bottom-overlay">
+        <div class="infinity-text">"TO INFINITY AND BEYOND"</div>
+        <div class="overlay-content">
+            <h2>Welcome to My Portfolio</h2>
+            <p>Explore my projects and discover what I've been working on.</p>
+            <p>Click on any tile to learn more about each project.</p>
+            <p>I am continually experimenting with new ideas, refining existing projects, and exploring different design languages to tell better visual stories.</p>
+            <p>From simple HTML demos to complex interactive experiences, every tile represents a step in my growth and a snapshot of skills learned along the way.</p>
+            <p>Stay tuned for more updates, deeper dives into each project, process write-ups, and insights into the technologies I am currently exploring.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
